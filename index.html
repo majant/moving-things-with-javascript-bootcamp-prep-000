@@ -12,8 +12,27 @@
     <script>
       var dodger = document.getElementById('dodger');
       function moveDodgerLeft() {
-        var left = parseInt(dodger.style.left.replace('px',''))
+        var left = parseInt(dodger.style.left.replace('px',''), 10)
+        if (left >0) {
+          dodger.style.left = `${left-1}px`
+        }
       }
+      
+      function moveDogderRight() {
+        var left = parseInt(dodger.style.left.replace('px',''),10)
+        if (left < 400-40) {
+          dodger.style.left = `${left+1}px`
+        }
+      }
+      
+      document.addEventListener('keydown',function(e) {
+        if (e.which === 37) {
+          moveDodgerLeft()
+        }
+        if (e.which === 39) {
+          moveDodgerRight()
+        }
+      })
       
     </script>
   </body>
